@@ -443,10 +443,10 @@
     //#define SHIFT_OUT 40
     //#define SHIFT_EN 17
     
-    #define LCD_PINS_RS 16 
+    #define LCD_PINS_RS 16
     #define LCD_PINS_ENABLE 17
     #define LCD_PINS_D4 23
-    #define LCD_PINS_D5 25 
+    #define LCD_PINS_D5 25
     #define LCD_PINS_D6 27
     #define LCD_PINS_D7 29
     

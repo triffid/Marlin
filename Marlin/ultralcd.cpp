@@ -2409,7 +2409,11 @@ void MainMenu::showMainMenu()
   #endif
   if(tune)
   {
-    if(!(movesplanned() || IS_SD_PRINTING))
+    if(!(movesplanned()
+#ifdef SD_SUPPORT
+		 || IS_SD_PRINTING
+#endif
+		))
     {
       force_lcd_update=true;
       tune=false;
@@ -2417,7 +2421,11 @@ void MainMenu::showMainMenu()
   }
   else 
   {
-    if(movesplanned() || IS_SD_PRINTING)
+    if(movesplanned()
+#ifdef SD_SUPPORT
+		|| IS_SD_PRINTING
+#endif
+	)
     {
       force_lcd_update=true;
       tune=true;
