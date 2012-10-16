@@ -41,7 +41,7 @@
 #define SDPOWER            -1
 #define SDSS               53
 #define LED_PIN            -1
-#define FAN_PIN            -1
+#define FAN_PIN             7
 #define PS_ON_PIN           9
 #define KILL_PIN           -1
 
@@ -356,13 +356,13 @@
 #define Z2_DIR_PIN         34
 #define Z2_ENABLE_PIN      30
 
+#define E0_ENABLE_PIN      24
 #define E0_STEP_PIN        26
 #define E0_DIR_PIN         28
-#define E0_ENABLE_PIN      24
 
+#define E1_ENABLE_PIN      30
 #define E1_STEP_PIN        36
 #define E1_DIR_PIN         34
-#define E1_ENABLE_PIN      30
 
 #define SDPOWER            -1
 #define SDSS               53
@@ -383,14 +383,15 @@
 
 #define HEATER_0_PIN       10   // EXTRUDER 1
 #if MOTHERBOARD == 33
-#define HEATER_1_PIN       -1
+	#define HEATER_1_PIN       -1
 #else
-#define HEATER_1_PIN       9    // EXTRUDER 2 (FAN On Sprinter)
+	#define HEATER_1_PIN       9    // EXTRUDER 2 (FAN On Sprinter)
 #endif
-#define HEATER_2_PIN       -1   
+#define HEATER_2_PIN       -1
 #define TEMP_0_PIN         13   // ANALOG NUMBERING
 #define TEMP_1_PIN         15   // ANALOG NUMBERING
 #define TEMP_2_PIN         -1   // ANALOG NUMBERING
+
 #define HEATER_BED_PIN     8    // BED
 #define TEMP_BED_PIN       14   // ANALOG NUMBERING
 

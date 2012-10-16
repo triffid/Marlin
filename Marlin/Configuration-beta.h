@@ -5,43 +5,31 @@
 // Advanced settings can be found in Configuration_adv.h 
 // BASIC SETTINGS: select your board type, temperature sensor type, axis scaling, and endstop configuration
 
-//User specified version info of this build to display in [Pronterface, etc] terminal window during startup.
+//User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
-//to this build by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
+//to THIS file by the user have been successfully uploaded into firmware.
+#define STRING_VERSION_CONFIG_H "2012-10-09" //Personal revision number for changes to THIS file.
 #define STRING_CONFIG_H_AUTHOR "Triffid_Hunter" //Who made the changes.
-
-// SERIAL_PORT selects which serial port should be used for communication with the host.
-// This allows the connection of wireless adapters (for instance) to non-default port pins.
-// Serial port 0 is still used by the Arduino bootloader regardless of this setting.
-#define SERIAL_PORT 0
 
 // This determines the communication speed of the printer
 //#define BAUDRATE 230400
 #define BAUDRATE 115200
 
 //// The following define selects which electronics board you have. Please choose the one that matches your setup
-// 10 = Gen7 custom (Alfons3 Version) "https://github.com/Alfons3/Generation_7_Electronics"
-// 11 = Gen7 v1.1, v1.2 = 11
-// 12 = Gen7 v1.3
-// 13 = Gen7 v1.4
-// 3  = MEGA/RAMPS up to 1.2 = 3
-// 33 = RAMPS 1.3 (Power outputs: Extruder, Bed, Fan)
-// 34 = RAMPS 1.3 (Power outputs: Extruder0, Extruder1, Bed)
-// 4  = Duemilanove w/ ATMega328P pin assignment
-// 5  = Gen6
-// 51 = Gen6 deluxe
-// 6  = Sanguinololu < 1.2
-// 62 = Sanguinololu 1.2 and above
-// 63 = Melzi
-// 7  = Ultimaker
-// 71 = Ultimaker (Older electronics. Pre 1.5.4. This is rare)
-// 8  = Teensylu
-// 9  = Gen3+
-// 70 = Megatronics
-// 90 = Alpha OMCA board
-// 91 = Final OMCA board
-// Rambo = 301
+// Gen7 custom (Alfons3 Version) = 10 "https://github.com/Alfons3/Generation_7_Electronics"
+// Gen7 v1.1, v1.2 = 11
+// Gen7 v1.3 = 12
+// Gen7 v1.4 = 13
+// MEGA/RAMPS up to 1.2 = 3
+// RAMPS 1.3 = 33 (Power outputs: Extruder, Bed, Fan)
+// RAMPS 1.3 = 34 (Power outputs: Extruder0, Extruder1, Bed)
+// Gen6 = 5
+// Gen6 deluxe = 51
+// Sanguinololu 1.2 and above = 62
+// Melzi = 63
+// Ultimaker = 7
+// Teensylu = 8
+// Gen3+ =9
 
 #ifndef MOTHERBOARD
 #define MOTHERBOARD 33
@@ -252,26 +240,12 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 //#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.
 //#define ULTIPANEL  //the ultipanel as on thingiverse
 
-// The RepRapDiscount Smart Controller
-// http://reprap.org/wiki/RepRapDiscount_Smart_Controller
-//#define REPRAP_DISCOUNT_SMART_CONTROLLER
 
-
-//automatic expansion
-#if defined(ULTIMAKERCONTROLLER) || defined(REPRAP_DISCOUNT_SMART_CONTROLLER)
+#ifdef ULTIMAKERCONTROLLER    //automatic expansion
  #define ULTIPANEL
  #define NEWPANEL
 #endif 
-
-// Preheat Constants
-#define PLA_PREHEAT_HOTEND_TEMP 180 
-#define PLA_PREHEAT_HPB_TEMP 70
-#define PLA_PREHEAT_FAN_SPEED 255		// Insert Value between 0 and 255
-
-#define ABS_PREHEAT_HOTEND_TEMP 240
-#define ABS_PREHEAT_HPB_TEMP 100
-#define ABS_PREHEAT_FAN_SPEED 255		// Insert Value between 0 and 255
-
+ 
 
 #ifdef ULTIPANEL
 //  #define NEWPANEL  //enable this if you have a click-encoder panel
@@ -280,6 +254,15 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
   #define LCD_WIDTH 20
   #define LCD_HEIGHT 4
   
+// Preheat Constants
+  #define PLA_PREHEAT_HOTEND_TEMP 180 
+  #define PLA_PREHEAT_HPB_TEMP 70
+  #define PLA_PREHEAT_FAN_SPEED 255		// Insert Value between 0 and 255
+
+  #define ABS_PREHEAT_HOTEND_TEMP 240
+  #define ABS_PREHEAT_HPB_TEMP 100
+  #define ABS_PREHEAT_FAN_SPEED 255		// Insert Value between 0 and 255
+
 #else //no panel but just lcd 
   #ifdef ULTRA_LCD
     #define LCD_WIDTH 16
