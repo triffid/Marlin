@@ -2534,6 +2534,7 @@ void MainMenu::update()
 {
   static MainStatus oldstatus=Main_Menu;  //init automatically causes foce_lcd_update=true
   static unsigned long timeoutToStatus=0;
+  #ifdef SDSUPPORT
   #if (SDCARDDETECT > -1)
     //This code is only relivant if you have an SDcard detect pin.
     static bool oldcardstatus=false;
@@ -2554,6 +2555,7 @@ void MainMenu::update()
         LCD_MESSAGEPGM(MSG_SD_REMOVED);
       }
     }
+  #endif
   #endif
  
   if(status!=oldstatus)
